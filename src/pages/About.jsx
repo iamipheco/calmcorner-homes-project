@@ -75,7 +75,7 @@ export default function About() {
   return (
     <>
       {/* HERO */}
-      <section className="relative py-28 md:py-36 overflow-hidden">
+      <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={property2}
@@ -89,11 +89,11 @@ export default function About() {
           <span className="inline-block px-4 py-2 rounded-full bg-lime-500/20 text-lime-400 text-sm font-medium mb-6">
             Our Story
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-white mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-white mb-6">
             About Calmcorner Homes & Properties Ltd
           </h1>
           <p className="text-lg text-white/80">
-            Building dreams, creating homes since 2021
+            Building dreams, creating homes since 2023
           </p>
         </div>
       </section>

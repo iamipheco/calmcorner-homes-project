@@ -7,6 +7,7 @@ import Properties from "./pages/Properties";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
+import WhyCalmcorner from "./pages/WhyCalmcorner";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/properties" element={<Properties />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="/whycalmcorner" element={<WhyCalmcorner />} />
       </Route>
     </Routes>
     </>

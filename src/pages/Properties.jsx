@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { Search } from "lucide-react";
+import { Search, Phone, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import PropertyCard from "../components/PropertyCard";
 
@@ -7,7 +7,6 @@ import PropertyCard from "../components/PropertyCard";
    CONFIG (API / CMS READY)
 ===================================== */
 
-// Replace later with API call
 const ALL_PROPERTIES = [
   {
     id: 1,
@@ -91,24 +90,20 @@ export default function Properties() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
 
-  /* ---------- Debounce Search ---------- */
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(search.toLowerCase());
       setPage(1);
     }, 400);
-
     return () => clearTimeout(timer);
   }, [search]);
 
-  /* ---------- Simulated API Load ---------- */
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => setLoading(false), 800);
     return () => clearTimeout(timer);
   }, [activeFilter, debouncedSearch]);
 
-  /* ---------- Filtering Logic ---------- */
   const filteredProperties = useMemo(() => {
     return ALL_PROPERTIES.filter((property) => {
       const matchesFilter =
@@ -122,7 +117,6 @@ export default function Properties() {
     });
   }, [activeFilter, debouncedSearch]);
 
-  /* ---------- Pagination ---------- */
   const visibleProperties = filteredProperties.slice(
     0,
     page * PAGE_SIZE
@@ -133,13 +127,13 @@ export default function Properties() {
   return (
     <main className="bg-gray-100">
       {/* HERO */}
-      <section className="py-20 pt-36">
+      <section className="py-20 pt-28">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-xs uppercase font-semibold text-lime-600 mb-2">
-            Browse Listings
-          </p>
+          <span className="inline-block px-4 py-2 rounded-full bg-lime-500/20 text-lime-700 text-sm font-medium mb-6">
+            Browse Listing
+          </span>
 
-          <h1 className="text-3xl md:text-4xl font-serif font-semibold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-gray-900 mb-4">
             Our Properties
           </h1>
 
@@ -159,7 +153,7 @@ export default function Properties() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by location or property name..."
-                className="w-full pl-9 pr-4 py-2.5 rounded-full border text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full pl-9 pr-4 py-2.5 rounded-full border text-sm focus:outline-none focus:ring-2 focus:ring-lime-500"
               />
             </div>
 
@@ -186,14 +180,13 @@ export default function Properties() {
       </section>
 
       {/* LISTINGS */}
-      <section className=" bg-white p-16">
+      <section className="bg-white py-16">
         <div className="container mx-auto px-4">
           <p className="text-sm text-gray-500 mb-6">
             Showing {visibleProperties.length} of{" "}
             {filteredProperties.length} properties
           </p>
 
-          {/* GRID */}
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {loading
               ? Array.from({ length: PAGE_SIZE }).map((_, i) => (
@@ -211,17 +204,54 @@ export default function Properties() {
                 ))}
           </div>
 
-          {/* LOAD MORE */}
           {!loading && canLoadMore && (
             <div className="mt-12 flex justify-center">
               <button
                 onClick={() => setPage((p) => p + 1)}
-                className="px-6 py-3 rounded-full bg-lime-500 text-white text-sm hover:bg-green-600 transition"
+                className="px-6 py-3 rounded-full bg-lime-500 text-white text-sm hover:bg-lime-600 transition"
               >
                 Load More
               </button>
             </div>
           )}
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="bg-lime-600 py-20">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-3xl md:text-4xl font-serif font-semibold text-white mb-4"
+          >
+            Ready to Own Your Next Property?
+          </motion.h2>
+
+          <p className="text-gray-300 max-w-2xl mx-auto mb-10">
+            Whether you’re buying, investing, or inspecting, our team is ready
+            to guide you every step of the way.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-lime-500 text-white text-sm hover:bg-lime-600 transition"
+            >
+              <Phone size={16} />
+              Book Inspection
+            </a>
+
+            <a
+              href="mailto:info@yourcompany.com"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-gray-600 text-gray-200 text-sm hover:bg-gray-800 transition"
+            >
+              <Mail size={16} />
+              Talk to an Agent
+            </a>
+          </div>
         </div>
       </section>
     </main>
@@ -234,7 +264,7 @@ export default function Properties() {
 
 function SkeletonCard() {
   return (
-    <div className="bg-white rounded-2xl border overflow-hidden animate-pulse">
+    <div className="bg-white rounded-2xl overflow-hidden animate-pulse">
       <div className="h-56 bg-gray-200" />
       <div className="p-5 space-y-3">
         <div className="h-4 bg-gray-200 rounded w-1/3" />

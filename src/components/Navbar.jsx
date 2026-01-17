@@ -5,10 +5,10 @@ import clsx from "clsx";
 import Logo from "../assets/calmcorner-logo.png";
 
 const navigation = [
-  { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Our Services", href: "/services" },
   { name: "Our Properties", href: "/properties" },
+  { name: "Why Calmcorner", href: "/whycalmcorner" },
   { name: "Contact Us", href: "/contact" },
 ];
 
