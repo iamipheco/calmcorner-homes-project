@@ -59,14 +59,14 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-4">
           <a
             href="tel:+2348131565165"
-            className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#89BB1D] transition-colors"
+            className="flex items-center gap-2 text-sm text-gray-600 hover:text-lime-600 transition-colors"
           >
             <Phone className="w-4 h-4" />
           </a>
 
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center rounded-lg bg-[#89BB1D] px-4 py-2 text-sm font-medium text-white hover:bg-[#89BB1D]/90 transition"
+            className="inline-flex items-center justify-center rounded-lg bg-lime-500 px-4 py-2 text-sm font-medium text-white hover:bg-lime-600/90 transition"
           >
             Get in Touch
           </Link>
@@ -111,7 +111,7 @@ export default function Navbar() {
               <Link
                 to="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block w-full rounded-lg bg-[#89BB1D] px-4 py-3 text-center text-sm font-medium text-white hover:bg-[#89BB1D]/90 transition"
+                className="block w-full rounded-lg bg-lime-500 px-4 py-3 text-center text-sm font-medium text-white hover:bg-lime-600/90 transition"
               >
                 Get in Touch
               </Link>
