@@ -70,7 +70,7 @@ export default function HeroSlider() {
                 {slide.tag}
               </span>
 
-              <h1 className="text-2xl md:text-4xl lg:text-5xl font-serif font-semibold text-white leading-snug md:leading-tight mb-4 md:mb-6 animate-fade-up delay-100">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-semibold text-white leading-snug md:leading-tight mb-4 md:mb-6 animate-fade-up delay-100">
                 {slide.title} <br />
                 <span className="text-[#89BB1D]">{slide.highlight}</span>
               </h1>
