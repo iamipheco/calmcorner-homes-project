@@ -1,20 +1,25 @@
 import { Link } from "react-router-dom";
-import {
-  Users,
-  Target,
-  Heart,
-  Award,
-  ArrowRight,
-  CheckCircle2,
-} from "lucide-react";
+import { Users, Target, Heart, Award, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import property2 from "../../src/assets/property-2.jpg";
+
+/* =======================
+   DATA (UNCHANGED)
+======================= */
 
 const team = [
   { name: "Kennedy Udemezue", role: "Founder & CEO", initials: "AJ" },
   { name: "Kennedy Udemezue", role: "Founder & CEO", initials: "AJ" },
-  { name: "Anyaefiena Ifechukwu", role: "Co-founder & Head of Operations", initials: "CO" },
-  { name: "Anyaefiena Ifechukwu", role: "Co-founder & Head of Operations", initials: "CO" },
-
+  {
+    name: "Anyaefiena Ifechukwu",
+    role: "Co-founder & Head of Operations",
+    initials: "CO",
+  },
+  {
+    name: "Anyaefiena Ifechukwu",
+    role: "Co-founder & Head of Operations",
+    initials: "CO",
+  },
 ];
 
 const values = [
@@ -48,8 +53,7 @@ const milestones = [
   {
     year: "2023",
     event: "Company Founded",
-    description:
-      "Started with a vision to transform real estate in Nigeria",
+    description: "Started with a vision to transform real estate in Nigeria",
   },
   {
     year: "2024",
@@ -69,13 +73,33 @@ const milestones = [
   {
     year: "2027",
     event: "1000+ Properties",
-    description: " We are working on Over 1000 successful property transactions",
+    description:
+      " We are working on Over 1000 successful property transactions",
   },
 ];
 
+/* =======================
+   MOTION PRESETS
+======================= */
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const stagger = {
+  visible: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+/* =======================
+   PAGE
+======================= */
+
 export default function About() {
   return (
-    <>
+    <div className="font-sans text-slate-900">
       {/* HERO */}
       <section className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
@@ -87,7 +111,13 @@ export default function About() {
           <div className="absolute inset-0 bg-black/70" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 text-center">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="relative z-10 container mx-auto px-6 text-center"
+        >
           <span className="inline-block px-4 py-2 rounded-full bg-lime-500/20 text-lime-400 text-sm font-medium mb-6">
             Our Story
           </span>
@@ -97,13 +127,18 @@ export default function About() {
           <p className="text-lg text-white/80">
             Building dreams, creating homes since 2023
           </p>
-        </div>
+        </motion.div>
       </section>
 
       {/* STORY */}
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             <span className="text-lime-600 text-sm uppercase font-medium block mb-3">
               Who We Are
             </span>
@@ -116,40 +151,58 @@ export default function About() {
               transparent, and rewarding for every Nigerian and Diaspora.
             </p>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              From a small passionate team, we have grown into one of
-              Nigeria’s most trusted real estate brands.
+              From a small passionate team, we have grown into one of Nigeria’s
+              most trusted real estate brands.
             </p>
             <p className="text-gray-600 leading-relaxed">
               Integrity, quality, and commitment remain the foundation of
               everything we do.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="relative">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="relative"
+          >
             <div className="aspect-square rounded-2xl bg-lime-50 flex items-center justify-center">
               <div className="text-center">
                 <p className="text-6xl font-serif font-bold text-lime-600">
                   3+
                 </p>
-                <p className="text-gray-800 font-medium">
-                  Years of Excellence
-                </p>
+                <p className="text-gray-800 font-medium">Years of Excellence</p>
               </div>
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-lime-500 rounded-xl p-6 text-white shadow-lg">
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="absolute -bottom-6 -left-6 bg-lime-500 rounded-xl p-6 text-white shadow-lg"
+            >
               <p className="text-3xl font-serif font-bold">100+</p>
-              <p className="text-sm text-white/80">
-                Properties Delivered
-              </p>
-            </div>
-          </div>
+              <p className="text-sm text-white/80">Properties Delivered</p>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* MISSION & VISION */}
       <section className="py-20 md:py-28 bg-gray-50">
-        <div className="container mx-auto px-6 grid md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-2xl p-8 shadow-sm">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container mx-auto px-6 grid md:grid-cols-2 gap-8"
+        >
+          <motion.div
+            variants={fadeUp}
+            className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition"
+          >
             <Target className="w-10 h-10 text-lime-600 mb-4" />
             <h3 className="text-2xl font-serif font-semibold mb-3">
               Our Mission
@@ -158,54 +211,72 @@ export default function About() {
               To empower individuals and families through transparent,
               customer-focused real estate solutions.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="bg-lime-600 rounded-2xl p-8 text-white shadow-sm">
+          <motion.div
+            variants={fadeUp}
+            className="bg-lime-600 rounded-2xl p-8 text-white shadow-sm hover:shadow-md transition"
+          >
             <Award className="w-10 h-10 mb-4" />
             <h3 className="text-2xl font-serif font-semibold mb-3">
               Our Vision
             </h3>
             <p className="text-white/90">
-              To be Nigeria’s most trusted real estate brand, delivering
-              lasting value.
+              To be Nigeria’s most trusted real estate brand, delivering lasting
+              value.
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* VALUES */}
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl md:text-4xl font-serif font-semibold">
               Our Core Values
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
             {values.map((value, i) => (
-              <div
+              <motion.div
                 key={i}
+                variants={fadeUp}
                 className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition"
               >
                 <value.icon className="w-10 h-10 text-lime-600 mx-auto mb-4" />
-                <h3 className="font-serif font-semibold mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 text-sm">
-                  {value.description}
-                </p>
-              </div>
+                <h3 className="font-serif font-semibold mb-2">{value.title}</h3>
+                <p className="text-gray-600 text-sm">{value.description}</p>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* TIMELINE */}
       <section className="py-20 md:py-28 bg-gray-50">
-        <div className="container mx-auto px-6 max-w-3xl">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="container mx-auto px-6 max-w-3xl"
+        >
           {milestones.map((m, i) => (
-            <div key={i} className="flex gap-6 mb-8">
+            <motion.div key={i} variants={fadeUp} className="flex gap-6 mb-8">
               <div className="w-12 h-12 rounded-full bg-lime-500 text-white flex items-center justify-center font-bold">
                 {m.year}
               </div>
@@ -213,21 +284,33 @@ export default function About() {
                 <h4 className="font-semibold">{m.event}</h4>
                 <p className="text-gray-600 text-sm">{m.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* TEAM */}
       <section className="py-20 md:py-28">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-16">
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-serif font-semibold mb-16"
+          >
             Meet the Experts
-          </h2>
+          </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
             {team.map((member, i) => (
-              <div key={i}>
+              <motion.div key={i} variants={fadeUp}>
                 <div className="w-28 h-28 rounded-2xl bg-lime-50 mx-auto flex items-center justify-center mb-4">
                   <span className="text-2xl font-serif font-bold text-lime-600">
                     {member.initials}
@@ -235,28 +318,36 @@ export default function About() {
                 </div>
                 <h3 className="font-semibold">{member.name}</h3>
                 <p className="text-gray-600 text-sm">{member.role}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-20 md:py-28 bg-lime-600 text-center">
-        <h2 className="text-3xl md:text-4xl font-serif font-semibold text-white mb-6">
-          Ready to Work With Us?
-        </h2>
-        <p className="text-white/80 mb-8 max-w-2xl mx-auto">
-          Join thousands of satisfied clients who trust Calmcorner Homes and Properties Ltd.
-        </p>
-        <Link
-          to="/contact"
-          className="inline-flex items-center gap-2 bg-white text-lime-600 px-8 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition"
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
         >
-          Contact Us Today
-          <ArrowRight size={16} />
-        </Link>
+          <h2 className="text-3xl md:text-4xl font-serif font-semibold text-white mb-6">
+            Ready to Work With Us?
+          </h2>
+          <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+            Join thousands of satisfied clients who trust Calmcorner Homes and
+            Properties Ltd.
+          </p>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-white text-lime-600 px-8 py-3 rounded-full text-sm font-medium hover:bg-gray-100 transition"
+          >
+            Contact Us Today
+            <ArrowRight size={16} />
+          </Link>
+        </motion.div>
       </section>
-    </>
+    </div>
   );
 }

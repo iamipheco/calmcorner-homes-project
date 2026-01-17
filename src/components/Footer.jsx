@@ -7,17 +7,17 @@ import {
   Phone,
   Mail,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Logo from "../assets/logo-white.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="bg-slate-950 text-slate-300">
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-3 mb-4">
+            <NavLink to="/" className="flex items-center gap-3 mb-4">
               <img
                 src={Logo}
                 alt="Calmcorner Logo"
@@ -31,7 +31,7 @@ export default function Footer() {
                   Homes & Properties Ltd
                 </span>
               </div>
-            </Link>
+            </NavLink>
 
             <p className="text-sm leading-relaxed mb-6">
               Your trusted partner in real estate. We deliver premium properties
@@ -39,44 +39,26 @@ export default function Footer() {
             </p>
 
             <div className="flex gap-3">
-              <SocialIcon
-                icon={<Facebook size={18} />}
-                href="https://facebook.com"
-              />
-              <SocialIcon
-                icon={<Instagram size={18} />}
-                href="https://instagram.com"
-              />
-              <SocialIcon
-                icon={<Twitter size={18} />}
-                href="https://twitter.com"
-              />
-              <SocialIcon
-                icon={<Linkedin size={18} />}
-                href="https://linkedin.com"
-              />
+              <SocialIcon icon={Facebook} href="https://facebook.com" />
+              <SocialIcon icon={Instagram} href="https://instagram.com" />
+              <SocialIcon icon={Twitter} href="https://twitter.com" />
+              <SocialIcon icon={Linkedin} href="https://linkedin.com" />
             </div>
           </div>
 
           {/* Company */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-3 text-sm">
-              <FooterLink to="/about" text="About Us" />
-              <FooterLink to="/services" text="Our Services" />
-              <FooterLink to="/contact" text="Contact Us" />
-            </ul>
-          </div>
+          <FooterColumn title="Company">
+            <FooterNavLink to="/about" text="About Us" />
+            <FooterNavLink to="/services" text="Our Services" />
+            <FooterNavLink to="/contact" text="Contact Us" />
+          </FooterColumn>
 
           {/* Properties */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Properties</h4>
-            <ul className="space-y-3 text-sm">
-              <FooterLink to="/properties" text="Our Properties" />
-              <FooterLink to="/properties" text="Land for Sale" />
-              <FooterLink to="/properties" text="Homes for Sale" />
-            </ul>
-          </div>
+          <FooterColumn title="Properties">
+            <FooterNavLink to="/properties" text="All Properties" />
+            <FooterNavLink to="/properties?type=land" text="Land for Sale" />
+            <FooterNavLink to="/properties?type=homes" text="Homes for Sale" />
+          </FooterColumn>
 
           {/* Contact */}
           <div>
@@ -102,13 +84,11 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-slate-700 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between text-sm">
-          <p>
-            © 2026 Calmcorner Homes & Properties Ltd. All rights reserved.
-          </p>
+          <p>© 2026 Calmcorner Homes & Properties Ltd. All rights reserved.</p>
 
           <div className="flex gap-6 mt-4 md:mt-0">
-            <FooterLink to="/privacy-policy" text="Privacy Policy" />
-            <FooterLink to="/terms" text="Terms of Service" />
+            <FooterNavLink to="/privacy-policy" text="Privacy Policy" />
+            <FooterNavLink to="/terms" text="Terms of Service" />
           </div>
         </div>
       </div>
@@ -116,27 +96,46 @@ export default function Footer() {
   );
 }
 
-/* Reusable components */
+/* ===========================
+   Reusable Components
+=========================== */
 
-function SocialIcon({ icon, href }) {
+function FooterColumn({ title, children }) {
+  return (
+    <div>
+      <h4 className="text-white font-semibold mb-4">{title}</h4>
+      <ul className="space-y-3 text-sm">{children}</ul>
+    </div>
+  );
+}
+
+function FooterNavLink({ to, text }) {
+  return (
+    <li>
+      <NavLink
+        to={to}
+        className={({ isActive }) =>
+          `transition ${
+            isActive ? "text-lime-400 font-medium" : "hover:text-white"
+          }`
+        }
+      >
+        {text}
+      </NavLink>
+    </li>
+  );
+}
+
+function SocialIcon({ icon: Icon, href }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Social link"
       className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center hover:bg-lime-500 hover:text-slate-900 transition"
     >
-      {icon}
+      <Icon size={18} />
     </a>
-  );
-}
-
-function FooterLink({ to, text }) {
-  return (
-    <li>
-      <Link to={to} className="hover:text-white transition">
-        {text}
-      </Link>
-    </li>
   );
 }

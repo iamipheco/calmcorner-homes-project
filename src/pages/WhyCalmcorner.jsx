@@ -83,7 +83,7 @@ export default function WhyCalmcorner() {
   return (
     <main>
       {/* HERO */}
-      <section className="py-20 md:py-28 bg-gray-900 text-center">
+      <section className="py-20 md:py-28 bg-gray-950 text-center">
         <div className="container mx-auto px-4">
           <span className="inline-block px-4 py-2 rounded-full bg-lime-500/20 text-lime-400 text-sm font-medium mb-6">
             Why Choose Us
@@ -180,7 +180,7 @@ export default function WhyCalmcorner() {
       </section>
 
       {/* PROMISE / CTA */}
-      <section className="py-20 md:py-28 bg-gray-900">
+      <section className="py-20 md:py-28 bg-gray-950">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
