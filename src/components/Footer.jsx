@@ -100,6 +100,7 @@ export default function Footer() {
    Reusable Components
 =========================== */
 
+
 function FooterColumn({ title, children }) {
   return (
     <div>
