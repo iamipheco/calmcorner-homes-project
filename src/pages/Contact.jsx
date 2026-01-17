@@ -64,8 +64,8 @@ export default function Contact() {
       {/* Hero */}
       <section className="py-20 md:py-28 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center px-6">
-          <span className="text-lime-600 font-medium text-sm uppercase tracking-wider block mb-3">
-            Get in Touch
+          <span className="inline-block px-4 py-2 rounded-full bg-lime-500/20 text-lime-700 text-sm font-medium mb-6">
+           Get In Touch
           </span>
           <h1 className="text-4xl md:text-5xl font-serif font-semibold mb-4">
             Contact Us
