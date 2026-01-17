@@ -11,6 +11,8 @@ import property2 from "../../src/assets/property-2.jpg";
 
 const team = [
   { name: "Kennedy Udemezue", role: "Founder & CEO", initials: "AJ" },
+  { name: "Kennedy Udemezue", role: "Founder & CEO", initials: "AJ" },
+  { name: "Anyaefiena Ifechukwu", role: "Co-founder & Head of Operations", initials: "CO" },
   { name: "Anyaefiena Ifechukwu", role: "Co-founder & Head of Operations", initials: "CO" },
 
 ];
@@ -90,7 +92,7 @@ export default function About() {
             Our Story
           </span>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-white mb-6">
-            About Calmcorner Homes & Properties Ltd
+            About Calmcorner Homes
           </h1>
           <p className="text-lg text-white/80">
             Building dreams, creating homes since 2023
