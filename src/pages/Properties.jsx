@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Search, Phone, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import PropertyCard from "../components/PropertyCard";
+import { Link } from "react-router-dom";
 
 /* =====================================
    CONFIG (API / CMS READY)
@@ -230,27 +231,25 @@ export default function Properties() {
             Ready to Own Your Next Property?
           </motion.h2>
 
-          <p className="text-gray-300 max-w-2xl mx-auto mb-10">
+          <p className="text-white max-w-2xl mx-auto mb-10">
             Whether you’re buying, investing, or inspecting, our team is ready
             to guide you every step of the way.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-lime-500 text-white text-sm hover:bg-lime-600 transition"
+            <Link to="/contact"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white text-lime-600 text-sm hover:text-gray-600 transition"
             >
               <Phone size={16} />
               Book Inspection
-            </a>
+            </Link>
 
-            <a
-              href="mailto:info@yourcompany.com"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-gray-600 text-gray-200 text-sm hover:bg-gray-800 transition"
+            <Link to="mailto:info@yourcompany.com"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-white text-gray-200 text-sm hover:bg-gray-800 transition"
             >
               <Mail size={16} />
               Talk to an Agent
-            </a>
+            </Link>
           </div>
         </div>
       </section>
