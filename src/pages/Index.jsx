@@ -15,7 +15,6 @@ import HeroSlider from "../components/HeroSlider";
 import PropertyCard from "../components/PropertyCard";
 import { Link } from "react-router-dom";
 import FeatureCard from "../components/FeaturedCard";
-import Footer from "../components/Footer";
 import ServiceCard from "../components/ServiceCard";
 
 const stats = [
@@ -25,44 +24,6 @@ const stats = [
   { value: "1+", label: "Active Projects" },
 ];
 
-const services = [
-  {
-    icon: Home,
-    title: "Land Sales",
-    description:
-      "Premium plots in prime locations with verified titles and secure transactions.",
-  },
-  {
-    icon: Building2,
-    title: "Property Development",
-    description:
-      "From concept to completion, we create exceptional residential and commercial spaces.",
-  },
-  {
-    icon: Hammer,
-    title: "Home Construction",
-    description:
-      "Custom home building with quality materials and expert craftsmanship.",
-  },
-  {
-    icon: Users,
-    title: "Real Estate Consultancy",
-    description:
-      "Expert guidance for buying, selling, and investing in properties.",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Property Management",
-    description:
-      "Professional management to protect and maximize your investments.",
-  },
-  {
-    icon: Shield,
-    title: "Legal & Documentation",
-    description:
-      "Assistance with property legalities, contracts, and verified documentation.",
-  },
-];
 
 const propertiees = [
   {
@@ -119,7 +80,7 @@ const Index = () => {
         </div>
 
         <section className="bg-gray-50 py-20">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto px-5 md:px-0">
             {/* Header */}
             <div className="text-center max-w-2xl mx-auto mb-14">
               <p className="text-lime-500 text-sm font-semibold tracking-wide mb-2">
