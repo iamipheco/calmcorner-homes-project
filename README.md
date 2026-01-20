@@ -1,4 +1,4 @@
-# 🏡 Calmcorner Homes and Properties Project
+# 🏡 Calmcorner Homes Project
 
 A modern real-estate web application built with **React** and **Vite**, focused on clean UI, performance, and a smooth browsing experience for property listings.
 
@@ -27,7 +27,7 @@ It is structured for scalability and easy integration with APIs or backend servi
 - **Vite**
 - **JavaScript (ES6+)**
 - **HTML5**
-- **CSS / Tailwind (if added)**
+- **CSS / Tailwind**
 - **ESLint**
 
 ---
